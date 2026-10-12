@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DocOptimize | Document Categorization</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">Doc<span>Optimize</span></div>
+    <div>
+      <a href="#analyzer">Analyzer</a>
+      <a href="#search">Search</a>
+      <a href="#dsa">DSA</a>
+      <a href="#workflow">Workflow</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+<section class="hero">
+  <div>
+    <div class="badge">DSA-DRIVEN DOCUMENT CATEGORIZATION SYSTEM</div>
+    <h1>Organize documents.<br>Find them faster.</h1>
+    <p>An interactive document categorization framework that analyzes text, identifies relevant categories, calculates confidence, and makes documents easier to retrieve.</p>
+    <div class="actions">
+      <a href="#analyzer"><button class="btn">Analyze Document</button></a>
+      <a href="#dsa"><button class="btn secondary">Explore DSA</button></a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div style="color:#8997b5;font-size:13px">OPTIMIZATION PIPELINE</div>
+    <div class="flow">
+      <div class="node">Input</div><div class="arrow">→</div>
+      <div class="node">Preprocess</div><div class="arrow">→</div>
+      <div class="node">Features</div><div class="arrow">→</div>
+      <div class="node">Categorize</div><div class="arrow">→</div>
+      <div class="node">Retrieve</div>
+    </div>
+    <div style="margin-top:25px;color:#aeb9d4;font-size:13px">Optimized with HashMap, Trie, Sorting and Priority Queue concepts.</div>
+  </div>
+</section>
+
+<section class="section" id="analyzer">
+  <h2 class="section-title">Document Analyzer</h2>
+  <p class="section-sub">Upload a .txt file or paste document text to categorize it instantly.</p>
+  <div class="analyzer">
+    <div class="panel">
+      <div class="upload">
+        <label for="fileInput" style="cursor:pointer">Choose a TXT file</label>
+        <input id="fileInput" type="file" accept=".txt,text/plain">
+        <div id="fileName" style="margin-top:5px;font-size:12px"></div>
+      </div>
+      <textarea id="docText" placeholder="Paste your document content here...&#10;&#10;Example: Machine learning models, neural networks, artificial intelligence and data prediction."></textarea>
+      <div class="actions">
+        <button class="btn" id="analyzeBtn">Analyze & Categorize</button>
+        <button class="btn secondary" id="clearBtn">Clear</button>
+      </div>
+    </div>
+    <div class="panel result">
+      <div style="color:#8997b5;font-size:13px">ANALYSIS RESULT</div>
+      <div id="resultContent" class="empty">Your category, confidence score and extracted keywords will appear here.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">System Dashboard</h2>
+  <p class="section-sub">Live statistics from the current browser session.</p>
+  <div class="stat-grid">
+    <div class="stat"><b id="docCount">0</b><span>Documents analyzed</span></div>
+    <div class="stat"><b id="avgScore">0%</b><span>Average confidence</span></div>
+    <div class="stat"><b id="catCount">0</b><span>Categories used</span></div>
+    <div class="stat"><b>4</b><span>Core DSA techniques</span></div>
+  </div>
+</section>
+
+<section class="section" id="search">
+  <h2 class="section-title">Search & Retrieval</h2>
+  <p class="section-sub">Search documents already analyzed in this browser session.</p>
+  <div class="panel">
+    <div class="search">
+      <input id="searchInput" placeholder="Search by keyword or category...">
+      <button class="btn" id="searchBtn">Search</button>
+    </div>
+    <div id="searchResults" class="results-list"><div class="empty">No documents analyzed yet.</div></div>
+  </div>
+</section>
+
+<section class="section" id="dsa">
+  <h2 class="section-title">DSA Toolkit</h2>
+  <p class="section-sub">The main data structures and algorithms used in the project concept.</p>
+  <div class="grid">
+    <div class="card"><div class="icon">HM</div><h3>HashMap</h3><p>Maps categories and keywords for fast key-value lookup and category matching.</p></div>
+    <div class="card"><div class="icon">TR</div><h3>Trie</h3><p>Supports efficient prefix and keyword searching through character-based paths.</p></div>
+    <div class="card"><div class="icon">PQ</div><h3>Priority Queue</h3><p>Ranks category candidates and selects the highest-scoring category.</p></div>
+    <div class="card"><div class="icon">SO</div><h3>Sorting</h3><p>Organizes documents or search results according to relevance and score.</p></div>
+    <div class="card"><div class="icon">SC</div><h3>Category Scoring</h3><p>Counts matching keywords and converts the strongest match into a confidence score.</p></div>
+    <div class="card"><div class="icon">SR</div><h3>Search & Retrieval</h3><p>Returns analyzed documents matching the user's search term or category.</p></div>
+  </div>
+</section>
+
+<section class="section" id="workflow">
+  <h2 class="section-title">System Workflow</h2>
+  <p class="section-sub">From document input to optimized retrieval.</p>
+  <div class="workflow">
+    <div class="step"><b>01</b><span>Document Input</span></div>
+    <div class="step"><b>02</b><span>Preprocessing</span></div>
+    <div class="step"><b>03</b><span>Feature Extraction</span></div>
+    <div class="step"><b>04</b><span>Build DSA</span></div>
+    <div class="step"><b>05</b><span>Category Match</span></div>
+    <div class="step"><b>06</b><span>Score</span></div>
+    <div class="step"><b>07</b><span>Optimize</span></div>
+    <div class="step"><b>08</b><span>Store/Retrieve</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Java DSA Implementation Concept</h2>
+  <p class="section-sub">Core structure used in the project design.</p>
+  <div class="code">
+Map&lt;String, Set&lt;String&gt;&gt; categoryKeywords = new HashMap&lt;&gt;();<br><br>
+categoryKeywords.put("AI", Set.of("machine", "learning", "model"));<br><br>
+PriorityQueue&lt;CategoryScore&gt; ranking =<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new PriorityQueue&lt;&gt;(Comparator.comparingDouble(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CategoryScore::score).reversed());<br><br>
+ranking.add(new CategoryScore("AI", 0.92));
+  </div>
+</section>
+</main>
+
+<footer>
+  Optimization Framework for Document Categorization · DSA Project · B.Tech CSE
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
